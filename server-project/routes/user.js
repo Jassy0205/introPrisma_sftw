@@ -6,8 +6,6 @@ const bcrypt = require('bcrypt');
 const  jwt = require('jsonwebtoken');
 const passport = require('passport');
 
-
-
 router.post('/signup', async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
     // Validar los datos de entrada
