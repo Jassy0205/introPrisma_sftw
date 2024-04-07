@@ -1,5 +1,7 @@
 require('dotenv').config()
 const express = require('express')
+const PrismaClient = require("@prisma/client").PrismaClient;
+const prisma = new PrismaClient();
 const app = express()
 const bcrypt = require('bcrypt')
 const passport = require('passport')
@@ -58,6 +60,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
       email: req.body.email,
       password: hashedPassword
     })
+    
     res.redirect('/login')
   } catch {
     res.redirect('/register')
